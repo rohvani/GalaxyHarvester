@@ -61,7 +61,7 @@ namespace galaxyHarvestor
 						data["ER"] = resource.entangle_resistance == 0 ? "" : resource.entangle_resistance.ToString();
 
 						wb.Headers.Add(HttpRequestHeader.Cookie, cookie);
-						// var response = wb.UploadValues(new Uri("http://www.galaxyharvester.net/postResource.py"), "POST", data);
+						var response = wb.UploadValues(new Uri("http://www.galaxyharvester.net/postResource.py"), "POST", data);
 					}
 					Console.SetCursorPosition(0, 1);
 					Console.WriteLine(resource.res_quality);
