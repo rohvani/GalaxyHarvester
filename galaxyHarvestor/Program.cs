@@ -34,7 +34,7 @@ namespace galaxyHarvestor
 				string cookie = Config.getValue("cookie");
 
 				Console.WriteLine("Loading resources from 'resource_manager_spawns.lua'");
-				List<Resource> resources = SerializeResources();
+				List<Resource> resources = DeserializeResources();
 
 				foreach (Resource resource in resources)
 				{
@@ -64,7 +64,6 @@ namespace galaxyHarvestor
 						var response = wb.UploadValues(new Uri("http://www.galaxyharvester.net/postResource.py"), "POST", data);
 					}
 					Console.SetCursorPosition(0, 1);
-					Console.WriteLine(resource.res_quality);
 					Console.WriteLine("[{0}/{1}] Uploading resources to GalaxyHarvester", resources.IndexOf(resource), resources.Count);
 					Thread.Sleep(10);
 				}
@@ -73,7 +72,7 @@ namespace galaxyHarvestor
 			Console.Read();
 		}
 
-		static List<Resource> SerializeResources()
+		static List<Resource> DeserializeResources()
 		{
 			List<Resource> resources = new List<Resource>();
 
